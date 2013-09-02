@@ -20,15 +20,14 @@
 
 ;;; Code:
 
-(defvar bcycle-skip-patterns '("^\s*?\\*" "^\s*?%"))
+(require 'cl)
+
+(defvar bcycle-skip-patterns '("^\s*\\*" "^\s*%"))
 
 (defun bcycle-matches-regexp (str regexp-list)
   "Return non-nil if str matches anything in regexp-list."
-  (let ((case-fold-search nil))
-    (catch 'done
-      (dolist (regexp regexp-list)
-        (when (string-match regexp str)
-          (throw 'done t))))))
+  (loop for regexp in regexp-list thereis (string-match regexp str)))
+
 
 (defun bcycle-next-buffer ()
   "Goes to the next buffer that doesn't match any exclusion patterns."
