@@ -9,7 +9,7 @@
 ;; --------------------
 ;; Download this repository into your .emacs.d directory.
 ;; Include the directory in your load-path.
-;; Require the package and cunfigure it to your liking.
+;; Require the package and configure it to your liking.
 
 ;; Example Code in .emacs:
 ;; (add-to-list 'load-path "~/.emacs.d/bcycle")
